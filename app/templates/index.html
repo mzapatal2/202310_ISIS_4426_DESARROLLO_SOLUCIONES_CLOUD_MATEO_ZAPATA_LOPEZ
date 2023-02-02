@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Hi, {{ current_user.nombre }}!</h1>
+    <form action="index" method="post">
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.id.label }}<br>
+            {{ form.id(cols=32, rows=4) }}<br>
+            {% for error in form.id.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.nombre_evento.label }}<br>
+            {{ form.nombre_evento(cols=32, rows=4) }}<br>
+            {% for error in form.nombre_evento.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.categoria.label }}<br>
+            {{ form.categoria(cols=32, rows=4) }}<br>
+            {% for error in form.categoria.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.lugar.label }}<br>
+            {{ form.lugar(cols=32, rows=4) }}<br>
+            {% for error in form.categoria.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.direccion.label }}<br>
+            {{ form.direccion(cols=32, rows=4) }}<br>
+            {% for error in form.categoria.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.evento_presencial.label }}<br>
+            {{ form.evento_presencial(cols=32, rows=4) }}<br>
+            {% for error in form.categoria.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>{{ form.submit() }}</p>
+    </form>
+    <a href="{{ url_for('evento_detalle') }}">evento_detalle</a>
+    {% for evento in eventos %}
+    <p>
+    {{ evento.id }} nombre_evento: <b>{{ evento.nombre_evento }}</b> categoria: <b>{{ evento.categoria }}</b> lugar: <b>{{ evento.lugar }}</b>
+    </p>
+    {% endfor %}
+{% endblock %}

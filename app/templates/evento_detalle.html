@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>evento_detalle</h1>
+    <form class="form-inline" method="GET" >
+    <p>Seleccione el evento: {{ current_user.id }}</p>
+        <div class="form-group">
+            <div class="input-group">
+              <span class="input-group-addon">Please select</span>
+                <select name="evento_detalle" method="GET" action="/">
+                    {% for evento in mostrar_evento %}
+                    <option value="{{evento.id}}" SELECTED>{{ evento.id }}</option>"
+                    {% endfor %}
+                </select>
+            </div>
+            <button type="submit" class="btn btn-default">evento_detalle</button>
+        </div>
+    </form>
+    <form action="evento_detalle" method="post">
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.id.label }}<br>
+            {{ form.id(cols=32, rows=4) }}<br>
+            {% for error in form.id.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.nombre_evento.label }}<br>
+            {{ form.nombre_evento(cols=32, rows=4) }}<br>
+            {% for error in form.nombre_evento.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.categoria.label }}<br>
+            {{ form.categoria(cols=32, rows=4) }}<br>
+            {% for error in form.categoria.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.lugar.label }}<br>
+            {{ form.lugar(cols=32, rows=4) }}<br>
+            {% for error in form.categoria.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.direccion.label }}<br>
+            {{ form.direccion(cols=32, rows=4) }}<br>
+            {% for error in form.categoria.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.evento_presencial.label }}<br>
+            {{ form.evento_presencial(cols=32, rows=4) }}<br>
+            {% for error in form.categoria.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>{{ form.delete() }}</p> <p>{{ form.submit() }}</p>
+    </form>
+{% endblock %}
