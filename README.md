@@ -2,3 +2,5 @@
 
 -Estudiante: Mateo Zapata Lopez
 -Login uniandes: m.zapatal2@uniandes.edu
+
+Video explicativo de la aplicacion en la carperta /Video_Entrega
